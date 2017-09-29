@@ -1,0 +1,7 @@
+function 'test';
+dprint 'Function called.\n';
+dprint 'Function returning.\n';
+end;
+call 'test';
+push 102.3;
+pop r4;

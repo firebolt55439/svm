@@ -1,0 +1,53 @@
+def 'test', 102.3;
+lda r2, 100.3;
+lda r3, 100.4;
+lda s4, 'sumer is awesome';
+sto 30458.9468, r3;
+ldr r3, r2;
+add r2, r3; # basically double r3 #
+sub r2, r3; # revert r3 back... #
+lda r2, 4;
+lda r3, 8;
+div r2, r3;
+mul r3, r3;
+print r2;
+lda r2, 103.43567;
+lda r3, 2;
+mul r3, r2; # double it #
+div r3, r2; # revert... #
+print r2;
+sprint s4;
+cmp r2, r3;
+lda r3, 100;
+lda r2, 98;
+lda r4, 1;
+label 'sumer';
+dprint 'Hello, World!\n';
+add r4, r2;
+bng r2, r3, 'sumer'; # branches! #
+jg 'sumer2'; # jumps! #
+dprint 'TEST FAILED!\n';
+label 'sumer2'; # forward jumps! #
+lda r3, test;
+add r2, r3, r4; # allows three-address register code as well (only binary ops so far) #
+print r4;
+gets s2;
+atof s2, r1;
+dprint '\nYou entered: ';
+sprint s2;
+dprint '\n';
+print r1;
+function 'test';
+dprint 'FUNCTION CALLED!\n';
+dprint 'End of function.\n';
+end;
+heapalloc 'tr'; # heap variables! #
+lda r5, 1023;
+# hps r5, tr; #
+hsto 102.3, tr;
+hld tr, r4;
+# add tr, r4; #
+call 'test';
+dprint '\nTest reached!\n';
+jmp 'sumer';
+dprint 'End of program.\n';
